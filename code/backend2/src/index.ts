@@ -7,6 +7,9 @@ import appRouter from './routes';
 import { notFound } from './middlewares/notFound';
 import { errorHandler } from './middlewares/errorHandler';
 
+import { requestLogger } from './middlewares/requestLogger';
+
+
 dotenv.config();
 
 const app: Application = express();
@@ -15,6 +18,7 @@ app.use(express.json());
 
 app.use(cors());
 
+app.use(requestLogger);
 app.use(appRouter);
 
 app.use(notFound);

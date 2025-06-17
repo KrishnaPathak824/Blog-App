@@ -1,13 +1,13 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { Application } from 'express';
-
 import appRouter from './routes';
 import { notFound } from './middlewares/notFound';
 import { errorHandler } from './middlewares/errorHandler';
 
 // Clerk imports
 import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
+import { requestLogger } from './middlewares/requestLogger';
 
 dotenv.config();
 
@@ -19,6 +19,7 @@ app.use(cors());
 // Clerk middleware: attaches req.auth to all requests
 app.use(ClerkExpressWithAuth());
 
+app.use(requestLogger);
 app.use(appRouter);
 
 app.use(notFound);
