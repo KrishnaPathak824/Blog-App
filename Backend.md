@@ -1,5 +1,17 @@
 # Backend - Postgres and environments setup
 
+**The backend in the code base runs in model-view-controller architecture. It uses postgres as the database.**
+
+Models define the database schema and interact with the database (e.g., Blog, User, Comment models).
+
+Controllers contain the logic for handling requests, such as creating a blog or fetching comments.
+
+Routes map API endpoints to the appropriate controller functions.
+
+Middlewares handle tasks like authentication (ClerkExpressWithAuth), error handling, and request logging.
+
+The main server file index.ts initializes middleware, loads routes, and starts the server.
+
 ---
 
 ## 1. Install Postgres in windows
@@ -11,6 +23,10 @@
 ---
 
 ## 2. Setup postgres and create database in postgres according to the env.
+
+Navigate to create database, user and password from the env file.
+
+![alt](/materials/Task2/Step3.png)
 
 ![alt](/materials/Task2/Step2.png)
 
@@ -28,10 +44,6 @@ This error meant that the user fellowship does not have permission to create tab
 So the privileges are given to the fellowship user.
 `GRANT ALL PRIVILEGES ON SCHEMA public TO fellowship;`
 `ALTER SCHEMA public OWNER TO fellowship;`
-
-Navigate to create database,user and password from the env file.
-
-![alt](/materials/Task2/Step3.png)
 
 ---
 
