@@ -18,14 +18,15 @@ import {
 } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Editor from "./Editor";
+const APP_URL = import.meta.env.VITE_API_URL; 
 
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { marked } from "marked";
 import { openPreview } from "../util";
 
-const USER_API = "http://localhost:3000/api/users";
-const BLOG_API = "http://localhost:3001/api/blogs";
+const USER_API = `${APP_URL}/api/users`;
+const BLOG_API = `${APP_URL}/api/blogs`;
 
 const generatePreview = async (arg: string) => {
 //     const parser = new DOMParser();
@@ -320,7 +321,7 @@ const CreateBlog: React.FC = () => {
                     <Typography variant="h5" sx={{ mb: 2 }}>
                         {title}
                     </Typography>
-                    {/* {<div
+                    <div
                         dangerouslySetInnerHTML={{
                             __html: ` 
             <html>
@@ -337,7 +338,7 @@ const CreateBlog: React.FC = () => {
             `
                         }}
                         style={{ minHeight: 200 }}
-                    />} */}
+                    />
                 </Box>
             </Box>
         </Box>

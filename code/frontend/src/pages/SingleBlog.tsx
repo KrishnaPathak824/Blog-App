@@ -25,8 +25,9 @@ import { Link } from "react-router-dom";
 import { useUser, useAuth } from "@clerk/clerk-react";
 import axios from "axios";
 import { marked } from "marked";
+const APP_URL = import.meta.env.VITE_API_URL; 
 
-const COMMENTS_API = "http://localhost:3001/api/comments";
+const COMMENTS_API = `${APP_URL}/api/comments`;
 
 const SingleBlog: React.FC = () => {
     const { id } = useParams<{ id: string }>();

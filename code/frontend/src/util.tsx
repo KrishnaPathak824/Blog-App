@@ -1,7 +1,8 @@
 import {marked} from "marked";
 export async function openPreview(content:string) {
   const htmlContent = await marked(content);
-  const win = window.open("", "_blank", "width=800,height=600");
+  const win = window.open("", "_blank", "noopener,width=800,height=600");
+
 
   if (win) {
     const doc = win.document;

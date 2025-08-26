@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+const APP_URL = import.meta.env.VITE_API_URL; 
+
 import {
   Container,
   Paper,
@@ -9,10 +11,10 @@ import {
   Alert,
   Box,
 } from "@mui/material";
-import { useAuth, useUser, SignInButton } from "@clerk/clerk-react";
+import { useAuth, SignInButton } from "@clerk/clerk-react";
 import axios from "axios";
 
-const USER_API = "http://localhost:3000/api/users";
+const USER_API = `${APP_URL}/api/users`;
 
 const CompleteSignup: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -21,7 +23,6 @@ const CompleteSignup: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const { getToken, isSignedIn } = useAuth();
-  const { user } = useUser();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

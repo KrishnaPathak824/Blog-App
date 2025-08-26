@@ -46,8 +46,6 @@ function App() {
                             </Typography>
                             <SignInButton
                               mode="modal"
-                              redirectUrl="/blogs/create"
-                              signInOptions={{ strategy: "oauth_google" }}
                             >
                               <Button
                                 variant="contained"

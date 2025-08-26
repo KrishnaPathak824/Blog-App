@@ -67,7 +67,7 @@ const AllBlogs: React.FC = () => {
                     alignItems="stretch"
                     sx={{ mt: 2 }}
                 >
-                    {blogs.map((blog) => (
+                    {Array.isArray(blogs) && blogs.map((blog) => (
                         <Box
                             key={blog.id}
                             sx={{
