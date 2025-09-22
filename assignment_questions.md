@@ -12,4 +12,4 @@
 4. Create a clerk application with google login feature. visit clerk.com for it. Setup your publishable key and secret key in backend and frontend and run the frontend and backend applications accordingly.
 5. Run migrations in the backend repositories as required to setup tables.
 6. Application should run and you should be able to create blogs
-7. Add a notfound middleware in both backends
+7. Add a notfound middleware in both backendsa
